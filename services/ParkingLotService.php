@@ -33,6 +33,10 @@ class ParkingLotService implements ParkingLotServiceInterface
               throw new Exception('All the places are currenty occupied.');
           }
 
+          if ($this->isParked($vehiclePlates)) {
+              throw new Exception('The parking lot is already occupied by the vehicle with this license plates');
+          }
+
           $vehicleDTO = new VehicleDTO(
               $vehiclePlates,
               $vehicleTypeID,
@@ -43,6 +47,11 @@ class ParkingLotService implements ParkingLotServiceInterface
           $this->parkingLotRepository->parkVehicle($vehicleDTO);
 
           return $vehicleDTO;
+      }
+
+      private function isParked($licensePlates)
+      {
+          return $this->parkingLotRepository->findByLicensePlates($licensePlates);   
       }
 
       public function unparkVehicle($licensePlates)

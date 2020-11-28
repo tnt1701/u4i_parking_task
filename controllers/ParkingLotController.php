@@ -2,7 +2,7 @@
 
 class ParkingLotController
 {
-    protected $parkingLotService;
+    protected $parkingLotService;    
 
     public function __construct()
     {
@@ -27,7 +27,6 @@ class ParkingLotController
 
         if ($vehicle === null) {
             echo json_encode(new MessageResponse('Parking lot is not supporting vehicle of this type.'));
-
             return;
         }
 
