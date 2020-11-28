@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "85afc1e8-fd11-4c13-b3b0-4493ec9af82c",
+		"name": "u4i",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Parking Lot",
+			"item": [
+				{
+					"name": "Vehicle Information List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://u4i_parking.local/",
+							"protocol": "http",
+							"host": [
+								"u4i_parking",
+								"local"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Vehicle Information",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"license_plates\": \"KO 7465 CZ\"   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://u4i_parking.local/unpark",
+							"protocol": "http",
+							"host": [
+								"u4i_parking",
+								"local"
+							],
+							"path": [
+								"unpark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vehicle List",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"license_plates\": \"KO 7465 CZ\",\r\n    \"typeID\": 2 \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://u4i_parking.local/park",
+							"protocol": "http",
+							"host": [
+								"u4i_parking",
+								"local"
+							],
+							"path": [
+								"park"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
