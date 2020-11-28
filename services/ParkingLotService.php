@@ -49,8 +49,6 @@ class ParkingLotService implements ParkingLotServiceInterface
           return $vehicleDTO;
       }
 
-      $test;
-
       private function isParked($licensePlates)
       {
           return $this->parkingLotRepository->findByLicensePlates($licensePlates);
