@@ -4,8 +4,6 @@ class ParkingLotService implements ParkingLotServiceInterface
 {
       protected $parkingLotRepository;
 
-      protected $maxSpots = 100;
-
       public function __construct()
       {
           $this->parkingLotRepository = new ParkingLotRepository();
@@ -18,6 +16,7 @@ class ParkingLotService implements ParkingLotServiceInterface
 
       public function parkVehicle(VehicleInterface $vehicle)
       {
+          $maxSpots = App::get('max_occupied_spots');
           $occupiedSpots = $this->parkingLotRepository->getTotalOccupiedSpots();
 
           $vehiclePlates = $vehicle->getLicensePlates();
@@ -29,7 +28,7 @@ class ParkingLotService implements ParkingLotServiceInterface
               throw new Exception('There is no car to be parked on the parking lot.');
           }
 
-          if (($this->maxSpots - $occupiedSpots) < $vehicleOccupationSpots) {
+          if (($maxSpots - $occupiedSpots) < $vehicleOccupationSpots) {
               throw new Exception('All the places are currenty occupied.');
           }
 

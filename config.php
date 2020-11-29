@@ -8,9 +8,9 @@ return [
         'connection' => 'mysql:host=127.0.0.1',
         'options' => [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-      ],
-      'parking_lot' => [
-          'max_occupied_spots' => 120
-        ]
-    ]
+      ]
+    ],
+    'parking_lot' => [
+        'max_occupied_spots' => 120
+      ]
 ];
